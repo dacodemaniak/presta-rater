@@ -1,5 +1,24 @@
 <!-- What you want -->
-{{ title }}
+<h1>{{ title | title | uppercase }}</h1>
+
+<button (click)="toggleLogStatus()">
+  Log me in
+</button>
+
+<div *ngIf="isLoggedIn; else loggedOut">
+  You're logged in !
+</div>
+
+<div *ngIf="!isLoggedIn">
+  You're logged out
+</div>
+
+<ng-template #loggedOut>
+  <div>
+    Hey guy you're logged out
+  </div>
+</ng-template>
+
 <!-- Router do the job -->
 <router-outlet></router-outlet>
 <!-- End of router job -->
