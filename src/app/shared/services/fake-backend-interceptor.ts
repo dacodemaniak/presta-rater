@@ -9,6 +9,9 @@ let events = JSON.parse(localStorage.getItem('events')) || [];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
+  constructor() {
+    console.log('Interceptor was loaded');
+  }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const { url, method, headers, body } = request;
         console.log(`HttpRequest was intercepted`);

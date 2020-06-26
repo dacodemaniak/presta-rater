@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/shared/services/event.service';
 import { Router } from '@angular/router';
+import { take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,20 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  private ayncEvents$;
+
   constructor(
     public events: EventService,
     private router: Router) { }
 
   ngOnInit(): void {
+    console.log('invoke findall from events');
+    this.events.findAll()
+      .pipe(
+        take(1)
+      ).subscribe((response) => {
+        console.log('Got fake response');
+      });
   }
 
   public goTo(id: number): void {

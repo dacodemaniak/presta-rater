@@ -3,6 +3,7 @@ import { environment } from './../../../environments/environment';
 import { EventInterface } from './../model/event-interface';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { take, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +23,14 @@ export class EventService {
 
   public findAll(): Observable<EventInterface[]> {
     const api = `${environment.apiRoot}events`;
-
+    console.log(`EventService is about to call ${api}`);
     return this.httpClient.get<EventInterface[]>(
       api
+    ).pipe(
+      take(1),
+      map((response) => {
+        return response;
+      })
     );
 
   }
