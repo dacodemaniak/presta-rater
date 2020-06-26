@@ -4,12 +4,11 @@
 <button (click)="toggleLogStatus()">
   Log me in
 </button>
-
 <div *ngIf="isLoggedIn; else loggedOut">
   You're logged in !
 </div>
 
-
+<input type="text" id="username" placeholder="your user name">
 
 <!-- Router do the job -->
 <router-outlet></router-outlet>

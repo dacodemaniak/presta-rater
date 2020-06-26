@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/shared/services/event.service';
 import { Router } from '@angular/router';
 import { take, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { take, map } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
 
-  private ayncEvents$;
+  private ayncEvents$: Observable<any[]>;
 
   constructor(
     public events: EventService,
