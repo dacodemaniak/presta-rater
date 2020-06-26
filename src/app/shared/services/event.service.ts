@@ -3,7 +3,7 @@ import { environment } from './../../../environments/environment';
 import { EventInterface } from './../model/event-interface';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { take, map } from 'rxjs/operators';
+import { take, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -28,11 +28,13 @@ export class EventService {
       api
     ).pipe(
       take(1),
+      tap((response) => {
+        // I can make something on the response...
+      }),
       map((response) => {
         return response;
       })
     );
-
   }
 
   public find(id: number): EventInterface {

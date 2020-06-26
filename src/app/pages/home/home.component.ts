@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
       .pipe(
         take(1)
       ).subscribe((response) => {
-        console.log('Got fake response');
+        console.log('Got fake response' + JSON.stringify(response));
       });
   }
 
