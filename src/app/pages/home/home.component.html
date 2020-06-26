@@ -1,0 +1,10 @@
+<ul eventList>
+  <ng-container *ngFor="let event of events.getEvents() | keyvalue">
+    <li [ngClass]="{'event': true, 'done': event.value.done}">
+      <a [routerLink]="['..', 'event', event.key]">
+        {{ event.value.title }}
+      </a>
+      <button (click)="goTo(event.key)">Détail...</button>
+    </li>
+  </ng-container>
+</ul>

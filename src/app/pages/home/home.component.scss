@@ -1,0 +1,10 @@
+[eventList] {
+  li {
+    &.event {
+      color: blue;
+      &.done {
+        text-decoration: line-through;
+      }
+    }
+  }
+}

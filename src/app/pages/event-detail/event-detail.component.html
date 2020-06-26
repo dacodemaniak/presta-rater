@@ -1,0 +1,7 @@
+<div *ngIf="event; else notNow">
+  {{ event.title }} : {{ event.done ? 'done' : 'alive' }}
+</div>
+
+<ng-template #notNow>
+  Just wait...
+</ng-template>

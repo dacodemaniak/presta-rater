@@ -9,18 +9,16 @@
   You're logged in !
 </div>
 
-<div *ngIf="!isLoggedIn">
-  You're logged out
-</div>
 
-<ng-template #loggedOut>
-  <div>
-    Hey guy you're logged out
-  </div>
-</ng-template>
 
 <!-- Router do the job -->
 <router-outlet></router-outlet>
 <!-- End of router job -->
 
-<!-- What your want too -->
+<ng-template #loggedOut>
+  <div class="footer">
+    Your logged out !
+  </div>
+</ng-template>
+
+<!-- What you want too -->
